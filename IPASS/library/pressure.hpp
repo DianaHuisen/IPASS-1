@@ -18,8 +18,8 @@ private:
     float atmosphere;
     float totalpressure;
     float pressurediff;
-    float base;
 public:
+    int base;
    /// \brief
    /// Constructor for the pressure subclass
    /// \details
