@@ -9,13 +9,13 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := sensorlib.cpp pressure.cpp pulse.cpp
+SOURCES := sensorlib.cpp pressure.cpp pulse.cpp activate.cpp
 
 # header files in this project
-HEADERS := library.hpp sensorlib.hpp pressure.cpp pulse.hpp
+HEADERS := library.hpp sensorlib.hpp pressure.cpp pulse.hpp activate.hpp
 
 # other places to look for files for this project
-SEARCH  := /home/user/Desktop/OOPC_OPDR/IPASS/library
+SEARCH  := /home/user/Desktop/OOPC_OPDR/IPASS/library /home/user/Desktop/OOPC_OPDR/IPASS/modules
 
 # set RELATIVE to the next higher directory 
 # and defer to the appropriate Makefile.* there

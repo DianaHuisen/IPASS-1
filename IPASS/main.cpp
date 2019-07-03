@@ -1,4 +1,10 @@
+// Copyright Daniel van Eijk-Bos 2019-2021
+// Distributed under the Boost Software License, Version 1.0
+// (See accompanying file license.txt or copy at
+// https://www.boost.org/LICENSE_1_0.txt)
+
 #include "library.hpp"
+#include "activate.hpp"
 
 int main(void){
    // Create variables which will be used later on to display systolic and dialostic pressures on oled screen
@@ -10,12 +16,10 @@ int main(void){
    auto display = hwlib::terminal_from(oled, font);
 
    // Set variables to which the relays for the motor and valve are connected, also close the valve and turn the motor off
-   auto valve = hwlib::target::pin_out(hwlib::target::pins::d2);
+   activate valve(hwlib::target::pin_out(hwlib::target::pins::d2));
    valve.write(1);
-   valve.flush();
-   auto motor = hwlib::target::pin_out(hwlib::target::pins::d3);
+   activate motor(hwlib::target::pin_out(hwlib::target::pins::d3));
    motor.write(0);
-   motor.flush();
 
    // Set variables to which the pulsesensor, pressuresensor and button are connected (the pulsesensor is broken and will not be used)
    pulse pulse(hwlib::target::pin_adc(hwlib::target::ad_pins::a2));
@@ -34,7 +38,6 @@ int main(void){
    hwlib::cout << pressure.getOutput() << " - 365 =" << pressure.getOutput() - 365 << "\n";
    // Turn on motor to start pumping air
    motor.write(1);
-   motor.flush();
    // Update measurements
    pressure.update();
    // Continue pumping air into the cuff until the sensor measures a pressure of 250 mmHg or higher and display measured data on pc
@@ -46,9 +49,7 @@ int main(void){
 
    // Turn motor and valve off to allow air to leave cuff and to lower the pressure
    motor.write(0);
-   motor.flush();
    valve.write(0);
-   valve.flush();
 
    // Push button when bloodflow is heard again instead of relying on pulse sensor
    while(button.read()){}
@@ -56,7 +57,6 @@ int main(void){
    // This is what would have been used had the pulse sensor worked
    // while(!pulse.checkPulse()){
    //    valve.write(0);
-   //    valve.flush();
    //    hwlib::cout << "Signal: " << pressure.getOutput() << " Pressure: " << pressure.getPressureDiff() << "\n";
    // }
 
@@ -70,8 +70,6 @@ int main(void){
 
    // This is again what would have been used had the pulse sensor worked
    // while(!pulse.checkPulse()){
-   //    valve.write(0);
-   //    valve.flush();
    //    hwlib::cout << "Signal: " << pressure.getOutput() << " Pressure: " << pressure.getPressureDiff() << "\n";
    // }
 
