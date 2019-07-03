@@ -1,3 +1,8 @@
+// Copyright Daniel van Eijk-Bos 2019-2021
+// Distributed under the Boost Software License, Version 1.0
+// (See accompanying file license.txt or copy at
+// https://www.boost.org/LICENSE_1_0.txt)
+
 #ifndef PULSE_HPP
 #define PULSE_HPP
 
@@ -42,7 +47,7 @@ public:
     /// Returns BPM
     /// \details
     /// Returns BPM as an integer to be viewed by the user
-    int getBPM();
+    int getBPM() const ;
 
     /// \brief
     /// Calculates BPM

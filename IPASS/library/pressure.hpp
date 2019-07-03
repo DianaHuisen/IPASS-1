@@ -1,3 +1,8 @@
+// Copyright Daniel van Eijk-Bos 2019-2021
+// Distributed under the Boost Software License, Version 1.0
+// (See accompanying file license.txt or copy at
+// https://www.boost.org/LICENSE_1_0.txt)
+
 #ifndef PRESSURE_HPP
 #define PRESSURE_HPP
 
@@ -58,26 +63,26 @@ public:
     /// Returns voltage in mV
     /// \details
     /// Returns the voltage calculated in update() as an integer so it can be viewed by users
-    int getVoltage();
+    int getVoltage() const ;
 
     /// \brief
     /// Returns atmosphere in mAtm
     /// \details
     /// Returns the atmosphere calculated in update() as an integer so it can be viewed by users
-    int getAtmosphere();
+    int getAtmosphere() const ;
 
     /// \brief
     /// Returns total measured pressure
     /// \details
     /// Returns the pressure calculated in update() as an integer so it can be viewed by users
-    int getTotalPressure();
+    int getTotalPressure() const ;
 
     /// \brief
     /// Returns the pressure difference
     /// \details
     /// Returns the pressure difference between the outside pressure and pressure in the cuff
     /// calculated in update() as an integer so it can be viewed by users
-    int getPressureDiff();
+    int getPressureDiff() const ;
 };
 
 #endif

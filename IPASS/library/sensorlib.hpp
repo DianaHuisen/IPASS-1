@@ -1,3 +1,8 @@
+// Copyright Daniel van Eijk-Bos 2019-2021
+// Distributed under the Boost Software License, Version 1.0
+// (See accompanying file license.txt or copy at
+// https://www.boost.org/LICENSE_1_0.txt)
+
 #ifndef SENSORLIB_HPP
 #define SENSORLIB_HPP
 
@@ -46,7 +51,7 @@ public:
    /// Write something to output
    /// \details
    /// Writes a float to output
-   void writeOutput(float input);
+   void writeOutput(const float & input);
 
    /// \brief
    /// Returns pin
