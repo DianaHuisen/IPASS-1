@@ -11,18 +11,16 @@
 /// Class for pin output
 /// \details
 /// A simple class used to control the output to certain pins
-class activate{
+class activate : public hwlib::target::pin_out{
 private:
-   hwlib::target::pin_out pin;
-   int signal;
+   hwlib::target::pins pin;
 public:
    /// \brief
    /// Constructor for activate class
    /// \details
    /// The constructor takes hwlib::target::pin_out as input and assigns 0 to signal
-   activate(hwlib::target::pin_out pin):
-      pin(pin),
-      signal(0)
+   activate(hwlib::target::pins pin):
+      hwlib::target::pin_out(pin)
    {}
 
    /// \brief

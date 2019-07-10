@@ -16,9 +16,9 @@ int main(void){
    auto display = hwlib::terminal_from(oled, font);
 
    // Set variables to which the relays for the motor and valve are connected, also close the valve and turn the motor off
-   activate valve(hwlib::target::pin_out(hwlib::target::pins::d2));
+   activate valve(hwlib::target::pins::d2);
    valve.write(1);
-   activate motor(hwlib::target::pin_out(hwlib::target::pins::d3));
+   activate motor(hwlib::target::pins::d3);
    motor.write(0);
 
    // Set variables to which the pulsesensor, pressuresensor and button are connected (the pulsesensor is broken and will not be used)
@@ -84,3 +84,11 @@ int main(void){
    display << "SYS: " << systolic << "\nDIA: " << diastolic;
    display.flush();
 }
+
+// #include "hwlib.hpp"
+// #include "activate.hpp"
+
+// int main(){
+//    auto motor = activate(hwlib::target::pins::d10);
+//    motor.write(1);
+// }

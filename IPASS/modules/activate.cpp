@@ -8,6 +8,6 @@
 #include "activate.hpp"
 
 void activate::write(const int & input){
-    pin.write(input);
-    pin.flush();
+    hwlib::target::pin_out(pin).write(input);
+    hwlib::target::pin_out(pin).flush();
 }
