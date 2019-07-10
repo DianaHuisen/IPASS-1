@@ -42,3 +42,19 @@ int pressure::getTotalPressure() const {
 int pressure::getPressureDiff() const {
     return pressurediff;
 }
+
+float pressure::getOutputf() const {
+    return output;
+}
+
+int pressure::getOutput() const {
+    return output;
+}
+
+void pressure::writeOutput(const float & input){
+    output = input;
+}
+
+hwlib::target::pin_adc pressure::getPin() const {
+    return pin;
+}

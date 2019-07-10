@@ -16,7 +16,7 @@
 /// The sensor class consists of a hwlib::target::pin_adc and an float
 /// The data from the pin is stored in the float
 class sensor{
-private:
+protected:
    hwlib::target::pin_adc pin;
    float output;
 public:
@@ -39,25 +39,25 @@ public:
    /// Returns output as float
    /// \details
    /// Returns output as float to be used in further calculations
-   float getOutputf() const;
+   virtual float getOutputf() const;
 
    /// \brief
    /// Returns output as float
    /// \details
    /// Returns output as int to be printed and viewed by the user
-   int getOutput() const;
+   virtual int getOutput() const;
 
    /// \brief
    /// Write something to output
    /// \details
    /// Writes a float to output
-   void writeOutput(const float & input);
+   virtual void writeOutput(const float & input);
 
    /// \brief
    /// Returns pin
    /// \details
    /// Returns the pin connected to the sensor
-   hwlib::target::pin_adc getPin() const;
+   virtual hwlib::target::pin_adc getPin() const;
 };
 
 #endif

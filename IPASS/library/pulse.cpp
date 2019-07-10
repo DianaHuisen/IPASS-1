@@ -45,3 +45,19 @@ void pulse::updateBPM(){
     // Beats per second * 60 = Beats Per Minute (BPM)
     BPM = BPS * 60;
 }
+
+float pulse::getOutputf() const {
+    return output;
+}
+
+int pulse::getOutput() const {
+    return output;
+}
+
+void pulse::writeOutput(const float & input){
+    output = input;
+}
+
+hwlib::target::pin_adc pulse::getPin() const {
+    return pin;
+}

@@ -83,6 +83,30 @@ public:
     /// Returns the pressure difference between the outside pressure and pressure in the cuff
     /// calculated in update() as an integer so it can be viewed by users
     int getPressureDiff() const ;
+
+    /// \brief
+    /// Returns output as float
+    /// \details
+    /// Returns output as float to be used in further calculations
+    float getOutputf() const override;
+
+    /// \brief
+    /// Returns output as float
+    /// \details
+    /// Returns output as int to be printed and viewed by the user
+    int getOutput() const override;
+
+    /// \brief
+    /// Write something to output
+    /// \details
+    /// Writes a float to output
+    void writeOutput(const float & input) override;
+
+    /// \brief
+    /// Returns pin
+    /// \details
+    /// Returns the pin connected to the sensor
+    hwlib::target::pin_adc getPin() const override;
 };
 
 #endif
